@@ -1,0 +1,112 @@
+---
+import '../styles/tokens.css';
+import '../styles/app.css';
+import { siteUrl, siteDescription } from '../data/projects';
+interface Props {
+  title?: string;
+  description?: string;
+  notFound?: boolean;
+  schema?: object;
+}
+const {
+  title = 'VINASIG | Practical tools and projects',
+  description = siteDescription,
+  notFound = false,
+  schema,
+} = Astro.props;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {notFound ? (
+      <meta name="robots" content="noindex" />
+    ) : (
+      <link rel="canonical" href={siteUrl} />
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VINASIG" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:url"
+      content={notFound ? `${siteUrl}404.html` : siteUrl}
+    />
+    <meta property="og:image" content={`${siteUrl}brand/social.png`} />
+    <meta property="og:image:alt" content="VINASIG brand mark" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}brand/social.png`} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`${base}brand/favicon-16.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`${base}brand/favicon-32.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href={`${base}brand/favicon-48.png`}
+    />
+    <link
+      rel="preload"
+      href={`${base}fonts/SpaceGrotesk-VariableFont_wght.woff2`}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href={`${base}fonts/font.css`} />
+    {schema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(schema).replace(/</g, '\u003c')}
+      />
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header container">
+      <a class="brand" href={base} aria-label="VINASIG home">
+        <img
+          src={`${base}brand/primary-color.svg`}
+          alt="VINASIG"
+          width="540"
+          height="140"
+        />
+      </a>
+      <nav aria-label="Main">
+        <a href={`${base}#tools`}>Projects</a>
+        <a href={`${base}#about`}>About</a>
+        <a href="https://github.com/VINASIG">GitHub</a>
+      </nav>
+    </header>
+    <main id="main" class="container" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer container">
+      <p>VINASIG. Software and technology with SI agents.</p>
+      <div class="footer-links">
+        <a href="https://github.com/VINASIG/vinasig">Website source</a>
+        <a href="https://github.com/VINASIG/vinasig-org-directory">
+          Contact directory
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

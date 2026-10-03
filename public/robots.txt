@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vinasig.github.io/vinasig/sitemap.xml

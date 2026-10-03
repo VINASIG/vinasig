@@ -1,0 +1,43 @@
+---
+import {
+  Calculator,
+  QrCode,
+  Image as ImageIcon,
+  Archive,
+  ArrowUpRight,
+} from '@lucide/astro';
+import { tools } from '../data/projects';
+interface Props {
+  tool: (typeof tools)[number];
+}
+const { tool } = Astro.props;
+const icons = {
+  calculator: Calculator,
+  'qr-code': QrCode,
+  image: ImageIcon,
+  archive: Archive,
+};
+const Icon = icons[tool.icon];
+---
+
+<article class="tool-card" aria-labelledby={`${tool.slug}-title`}>
+  <div class="card-heading">
+    <Icon class="tool-icon" size={26} stroke-width={1.75} aria-hidden="true" />
+    <h3 id={`${tool.slug}-title`}>{tool.name}</h3>
+  </div>
+  <p class="card-description">{tool.description}</p>
+  <p class="card-detail">{tool.detail}</p>
+  <footer class="card-actions">
+    <a class="action-link" href={tool.url}>
+      Open {tool.name}
+      <ArrowUpRight size={16} aria-hidden="true" />
+    </a>
+    <a
+      class="source-link"
+      href={tool.source}
+      aria-label={`Source for ${tool.name}`}
+    >
+      Source
+    </a>
+  </footer>
+</article>
