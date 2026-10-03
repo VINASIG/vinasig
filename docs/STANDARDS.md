@@ -1,8 +1,8 @@
 # Standards integration
 
-The website imports the `web-typescript` profile from VINASIG/agent-standards version 0.1.0 at commit `7c699d1dccd05c1dd2c4f0de4bb3abae23174ccd`.
+The website imports the `web-typescript` profile from VINASIG/agent-standards version 0.1.0 at commit `31b105622b1c70f6ad362eaaab429a9afa4b1a18`.
 
-The reviewed offline bundle digest is `bd59e07ba80969e9e5b6788a9438e81ba14a6e22ce121e6ef192ef89f54cd07f`. Its dry-run paths and instruction block were reviewed before the installer was applied. The provenance file pins the bundle and manifest digests. The integrity gate checks the marked AGENTS.md block and all 38 managed payloads. Seven namespaced skills are installed locally.
+The reviewed offline bundle digest is `e7d0fe4b417a782f0613a3367c458e9ff384fed1c43435f76c17252b5c7560e1`. Its dry-run paths and instruction block were reviewed before the installer was applied. The provenance file pins the bundle and manifest digests. The integrity gate checks the marked AGENTS.md block and all 38 managed payloads. Seven namespaced skills are installed locally.
 
 Source enforcement uses Astro's strictest TypeScript profile with declaration checking, typed ESLint with zero warnings, Astro's parser, Stylelint on actual CSS, one formatter and validation of generated HTML. Consumer adaptation is explicit and does not modify the immutable snapshot. The formatter ignores managed snapshot files, artwork, fonts and the instruction entrypoint.
 
@@ -19,3 +19,7 @@ WEB-008 requires matching closed and opened dropdown, calendar, color and slider
 The owner approved original transparent horizontal logos selected for the actual header surface under WEB-001. Keep the source asset bytes, proportions and internal artwork. Avoid white panels, padded or rounded cards and artwork effects. Maintain the accessible logo link and its usable target independently of image size.
 
 This reviewed snapshot adds `inspectHeaderBrand` to `templates/web/interface.mjs`. The consumer browser regressions check the real header alongside rendered copy. Asset integrity, screenshot review and script-unavailable states remain separate checks.
+
+## Licensing adopted on 4 October 2026
+
+The reviewed snapshot includes the licensing policy, LIC-001 through LIC-004, full GPL/CC texts, material map, brand policy, review template and license checker. It retains its own software/prose grants rather than setting this project's primary license. The owner separately selected this project's scopes in LICENSES.md. Use npm run check:licenses for source metadata/text verification. Web builds also verify published legal text and source notices. Original assets and existing gates remain required.

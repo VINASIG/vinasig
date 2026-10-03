@@ -43,7 +43,7 @@ Update `src/data/projects.ts` after reviewing the actual public repository, depl
 
 ## Publication
 
-[GitHub Actions](https://github.com/VINASIG/vinasig/actions/workflows/deploy.yml) verifies the exact commit on Linux and Windows with Chromium, Firefox and WebKit. Deployment waits for both jobs. The Linux job packages the checked static output and deploys it to GitHub Pages. A workflow definition alone does not establish a successful run.
+[GitHub Actions](https://github.com/VINASIG/vinasig/actions/workflows/deploy.yml) verifies the exact commit in six isolated Linux/Windows and Chromium/Firefox/WebKit jobs. Deployment waits for all six. The Linux Chromium job packages the checked static output for GitHub Pages. A workflow definition alone does not establish a successful run.
 
 The canonical website is `https://vinasig.github.io/vinasig/`. A custom domain is not configured. GitHub Pages uses the generated `404.html` for unknown paths. Source references and post-commit publication evidence are recorded separately.
 
@@ -51,6 +51,12 @@ The canonical website is `https://vinasig.github.io/vinasig/`. A custom domain i
 
 [AGENTS.md](AGENTS.md) contains this project's operating guide and an actual pinned import of VINASIG SI agent standards. [Standards integration](docs/STANDARDS.md) records the source and verification boundary. This website explicitly adopts the design system's Bright Playful Minimalism proposal for this brief.
 
-Space Grotesk retains its SIL OFL notice. Lucide retains its ISC notice. VINASIG artwork is copied without alteration from the supplied assets. Public visibility does not add a general source or artwork license. The npm package is private and is not published. See [brand adoption](docs/BRAND.md) and [license status](LICENSE_STATUS.md).
+Space Grotesk retains its SIL OFL notice. Lucide retains its ISC notice. VINASIG artwork is copied without alteration and follows [the separate brand policy](BRAND_POLICY.md). Authored software uses AGPL-3.0-or-later and documentation uses CC-BY-SA-4.0. The npm package remains private and unpublished. See [brand adoption](docs/BRAND.md) and [the material map](LICENSES.md).
 
 For contributions and sensitive findings, read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+## License scopes
+
+VINASIG-authored software uses **AGPL-3.0-or-later**. Authored documentation uses **CC-BY-SA-4.0**. Commercial use is allowed under those standard licenses. Fonts and third-party components retain their original terms. Official VINASIG identity assets follow the separate brand policy.
+
+Read [LICENSE](LICENSE), [LICENSES.md](LICENSES.md), [VINASIG Brand Usage Policy](BRAND_POLICY.md) and [the licensing review](docs/audits/licensing-2026-10-04.md) for exact scopes, rationale and remaining review.
