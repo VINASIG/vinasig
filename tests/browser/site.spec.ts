@@ -68,18 +68,35 @@ async function ready(page: Page) {
     ),
   ).toBe(true);
 }
-async function capture(page: Page, label: string) {
+async function capture(page: Page, label: string, scriptingAvailable = true) {
   const height = await page.evaluate(
     () => document.documentElement.scrollHeight,
   );
   const viewportHeight = page.viewportSize()?.height ?? 800;
-  for (let y = 0; y < height; y += viewportHeight)
+  const painted = async () => {
+    if (scriptingAvailable)
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) =>
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                resolve();
+              });
+            }),
+          ),
+      );
+  };
+  for (let y = 0; y < height; y += viewportHeight) {
     await page.evaluate((offset) => {
-      scrollTo(0, offset);
+      scrollTo({ top: offset, behavior: 'instant' });
     }, y);
+    await painted();
+  }
   await page.evaluate(() => {
-    scrollTo(0, 0);
+    scrollTo({ top: 0, behavior: 'instant' });
   });
+  await painted();
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
   const geometry = await page.evaluate(() => ({
     viewport: innerWidth,
     width: document.documentElement.scrollWidth,
@@ -98,15 +115,17 @@ async function capture(page: Page, label: string) {
         text: element.textContent.slice(0, 80),
       })),
   }));
-  await page.screenshot({
-    path: `output/responsive/${phase}-${label}.png`,
-    fullPage: true,
-  });
+  // Keep geometry even if the browser compositor cannot provide the bitmap.
   await writeOutput(
     repositoryRoot,
     `output/checks/geometry-${phase}-${label}.json`,
     `${JSON.stringify(geometry, null, 2)}\n`,
   );
+  await page.screenshot({
+    path: `output/responsive/${phase}-${label}.png`,
+    fullPage: true,
+    animations: 'disabled',
+  });
   expect(geometry.width, JSON.stringify(geometry.overflow)).toBeLessThanOrEqual(
     geometry.viewport + 1,
   );
@@ -256,6 +275,7 @@ for (const theme of ['light', 'dark'] as const)
         await capture(
           page,
           `home-390x844-${info.project.name}-${theme}-script-${mode}`,
+          mode !== 'disabled',
         );
         expect(
           requests.every(

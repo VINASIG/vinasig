@@ -33,3 +33,11 @@ This is a local verification record. Current-head CI and GitHub Pages publicatio
 The final adopted snapshot passed the project's source checks and 23 unit tests. The final production build and its applicable generated-HTML, metadata, deployment-path and original-asset checks passed.
 
 A separate Chromium run passed 92 header, copy, runtime, overflow, focus and hover combinations across this project's routes, both preferences and these additional widths in CSS px: 320, 479, 480, 481, 519, 520, 521, 639, 640, 641, 719, 720, 721, 759, 760, 761, 900, 958, 959, 960, 1099, 1100, 1101. These include 320 px, intermediate widths and the actual breakpoint neighbors used by the reviewed sites. Its immutable captures are under ignored `output/responsive/header-logos-2026-10-04/after-neighbors/chromium/`.
+
+## Capture correction after CI
+
+The first header commit's Ubuntu run, `37147350802`, passed 300 browser cases but received three Chromium compositor errors while requesting full-page screenshots at 320 px and at 759 px with 200% text. The retained log and trace show that fonts had loaded and the capture failed immediately after rapid scrolling. Its available failure screenshot shows the rendered header and content. The original CI artifacts remain under ignored `output/ci-header-first-failure/`.
+
+The existing capture helper now waits for two paint frames at each scroll position and after returning to the top. It verifies the top position, disables finite animations only for the still image and writes geometry before requesting the bitmap. Disabled-script contexts retain host-side status checks. The overflow, accessibility, enlarged-text, privacy, touch and browser-matrix assertions are unchanged. Retries remain zero.
+
+The complete local suite passed all 303 cases across Chromium, Firefox and WebKit after the correction. The three affected captures were opened and reviewed. Their complete-page screenshots and geometry use the separate `header-capture-stable` prefix. Final source checks passed. Current-head CI and publication remain separately verified before task completion.
