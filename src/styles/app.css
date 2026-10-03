@@ -124,12 +124,13 @@ svg {
 
 .brand {
   display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   max-width: 100%;
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-white);
-  border-radius: var(--radius-sm);
+  min-height: 44px;
 }
 
+.brand picture,
 .brand img {
   display: block;
   width: 8.75rem;

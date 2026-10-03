@@ -85,7 +85,8 @@ const assets = Object.entries(
     )['files'],
   ),
 );
-assert.equal(assets.length, 9);
+// Add only the reviewed Reversed export. Every existing digest stays fixed.
+assert.equal(assets.length, 10);
 for (const [file, checksum] of assets) {
   assert(file.startsWith('public/'));
   const bytes = await readLocal(repositoryRoot, file);
