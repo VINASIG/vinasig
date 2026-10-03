@@ -41,3 +41,7 @@ The first header commit's Ubuntu run, `37147350802`, passed 300 browser cases bu
 The existing capture helper now waits for two paint frames at each scroll position and after returning to the top. It verifies the top position, disables finite animations only for the still image and writes geometry before requesting the bitmap. Disabled-script contexts retain host-side status checks. The overflow, accessibility, enlarged-text, privacy, touch and browser-matrix assertions are unchanged. Retries remain zero.
 
 The complete local suite passed all 303 cases across Chromium, Firefox and WebKit after the correction. The three affected captures were opened and reviewed. Their complete-page screenshots and geometry use the separate `header-capture-stable` prefix. Final source checks passed. Current-head CI and publication remain separately verified before task completion.
+
+## CI resource isolation
+
+The capture follow-up passed 302 of 303 cases on Ubuntu, then reported `ENOSPC` while writing browser trace data during context cleanup. The original log is retained in ignored output. Browser jobs now isolate each of Chromium, Firefox and WebKit on Ubuntu and Windows. The six-job matrix retains every browser case, zero retries, existing timeouts and all assertions. Linux Chromium retains the existing Lighthouse budgets and packages Pages. Deployment waits for all six verification jobs. A workflow unit regression checks the declared matrix and deployment dependency.

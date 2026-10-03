@@ -1,6 +1,6 @@
 # Browser verification
 
-Build first. The test suite starts a static production server on an automatically allocated localhost port. CI requires Chromium, Firefox and WebKit and rejects a subset selection. There are no retries or disabled tests.
+Build first. The test suite starts a static production server on an automatically allocated localhost port. CI runs Chromium, Firefox and WebKit in separate jobs on both Ubuntu and Windows. All six jobs must pass before Pages deployment. Each job installs and selects its own engine to bound temporary trace storage, socket use and browser resource pressure. The complete project matrix remains in Playwright configuration, which rejects a CI subset supplied through BROWSER_ENGINES. There are no retries or disabled tests.
 
 The homepage matrix covers 320x800, 360x800, 390x844, 440x800, 600x800, 759x1024, 760x1024, 761x1024, 768x1024, 900x800, 1023x768, 1024x768, 1439x900 and 1440x900 in both themes at 100 and 200 percent root text. Every case scrolls the full page, captures idle and expanded disclosures, checks bounds/computed styles, actual font/image loading and axe results.
 
