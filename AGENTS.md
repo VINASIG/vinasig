@@ -6,10 +6,14 @@ Read README.md, docs/PRODUCT.md, docs/BRAND.md and docs/TOOLCHAIN.md before chan
 - Keep visible product copy, technical documentation, source and commit subjects in English. Respond to a Vietnamese user in Vietnamese. Use SI agents and Super Intelligence in VINASIG copy without inventing capability or industry claims.
 - Adopt the shared Bright Playful Minimalism proposal for this website. Use local Space Grotesk, Lucide interface icons, supplied byte-preserved VINASIG artwork and the pinned semantic tokens. Use Simple Icons only when a third-party brand mark is actually needed.
 - Keep the site static and usable without JavaScript. Use native links and disclosures. Do not add accounts, tracking, forms, live repository API calls, ornamental animation or unnecessary navigation machinery. Do not infer a custom domain from a directory entry.
-- Preserve the GitHub Pages base path /vinasig/. Validate the homepage, custom 404 page, favicon, fonts, canonical, social metadata, sitemap, project inventory and truthful structured data.
+- Preserve the canonical https://vinasig.io.vn/ deployment at the origin root. Validate the homepage, custom 404 page, favicon, fonts, canonical, social metadata, sitemap, project inventory and truthful structured data.
 - Run npm run check, npm test, npm run build and Playwright tests after changes. Open real screenshots at the five standard viewports, 320 px, content breakpoint neighbors, intermediate widths and 200 percent text. Check both themes, keyboard, touch, disclosures, links and normal/reduced motion. Fix overflow in source without clipping or hiding content.
 - Keep immutable before captures and local reports under ignored output/. Record durable audits under docs/audits/. Exact-commit CI, deployment and live verification are post-commit evidence. Do not invent future results in source documents.
 - Preserve unrelated sibling repositories and user changes. Review staged changes before an authorized commit. Verify pushed HEAD, required CI, deployment and live content for that revision. Physical devices, screen readers, field metrics, fresh Codex discovery and independent SI-agent trials stay NOT_RUN unless observed.
+## Canonical domain
+
+The owner authorized the custom-domain migration on 4 October 2026. Publish this site at https://vinasig.io.vn/ with an origin-root base. Preserve that domain in canonical/social metadata, sitemap, robots, package homepage, preview and browser assertions. Keep GitHub repository/source links intact. Read docs/DOMAIN.md. GitHub Actions deploys through the repository Pages custom-domain setting; a CNAME file alone does not configure an Actions deployment.
+
 <!-- VINASIG STANDARDS BEGIN -->
 ## VINASIG SI agent standards 0.1.0
 

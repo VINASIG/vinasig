@@ -2,7 +2,7 @@
 
 The public VINASIG website for discovering practical tools and the shared resources behind our projects.
 
-- [Visit VINASIG](https://vinasig.github.io/vinasig/)
+- [Visit VINASIG](https://vinasig.io.vn/)
 - [Explore the organization](https://github.com/VINASIG)
 
 ## What is here
@@ -15,7 +15,7 @@ VINASIG builds software and technology with Super Intelligence agents. SI is our
 
 ## Develop
 
-Use Node 24.21.0 and npm 12.2.0. Read the URL printed by Astro rather than assuming a port. The project site uses the `/vinasig/` deployment base.
+Use Node 24.21.0 and npm 12.2.0. Read the URL printed by Astro rather than assuming a port. The site uses the origin-root `/` deployment base.
 
 ```sh
 npx --yes npm@12.2.0 ci
@@ -45,7 +45,7 @@ Update `src/data/projects.ts` after reviewing the actual public repository, depl
 
 [GitHub Actions](https://github.com/VINASIG/vinasig/actions/workflows/deploy.yml) verifies the exact commit in six isolated Linux/Windows and Chromium/Firefox/WebKit jobs. Deployment waits for all six. The Linux Chromium job packages the checked static output for GitHub Pages. A workflow definition alone does not establish a successful run.
 
-The canonical website is `https://vinasig.github.io/vinasig/`. A custom domain is not configured. GitHub Pages uses the generated `404.html` for unknown paths. Source references and post-commit publication evidence are recorded separately.
+The canonical website is `https://vinasig.io.vn/`. The repository Pages custom domain is `vinasig.io.vn`. GitHub Pages uses the generated `404.html` for unknown paths. Source references and post-commit publication evidence are recorded separately.
 
 ## Standards and rights
 
@@ -54,6 +54,10 @@ The canonical website is `https://vinasig.github.io/vinasig/`. A custom domain i
 Space Grotesk retains its SIL OFL notice. Lucide retains its ISC notice. VINASIG artwork is copied without alteration and follows [the separate brand policy](BRAND_POLICY.md). Authored software uses AGPL-3.0-or-later and documentation uses CC-BY-SA-4.0. The npm package remains private and unpublished. See [brand adoption](docs/BRAND.md) and [the material map](LICENSES.md).
 
 For contributions and sensitive findings, read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+## Canonical domain
+
+The public site uses [vinasig.io.vn](https://vinasig.io.vn/) at the origin root. GitHub Pages remains the deployment service. [Domain maintenance](docs/DOMAIN.md) records DNS, HTTPS, search submission and verification boundaries.
 
 ## License scopes
 

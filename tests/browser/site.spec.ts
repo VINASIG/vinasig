@@ -200,7 +200,7 @@ for (const [width, height] of [...standard, [320, 800] as const])
         );
         await expect(
           page.getByRole('link', { name: 'Return to VINASIG' }),
-        ).toHaveAttribute('href', '/vinasig/');
+        ).toHaveAttribute('href', '/');
         if (width === 320)
           await page.evaluate(() => {
             document.documentElement.style.fontSize = '200%';

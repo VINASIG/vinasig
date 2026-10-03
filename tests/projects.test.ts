@@ -20,7 +20,13 @@ for (const project of [...tools, ...foundations]) {
 }
 for (const tool of tools) {
   await test(`${tool.name} opens its own HTTPS project site`, () => {
-    assert.equal(tool.url, `https://vinasig.github.io/${tool.slug}/`);
+    const sites: Record<string, string> = {
+      'bmi-calculator': 'https://bmi.vinasig.io.vn/',
+      'qr-generator': 'https://qr.vinasig.io.vn/',
+      'favicon-forge': 'https://favicon.vinasig.io.vn/',
+      unphar: 'https://unphar.vinasig.io.vn/',
+    };
+    assert.equal(tool.url, sites[tool.slug]);
     assert(tool.detail.length > 20);
   });
 }
@@ -30,8 +36,8 @@ await test('The curated inventory has distinct public project identities', () =>
   assert.equal(tools.length, 4);
   assert.equal(foundations.length, 4);
 });
-await test('Site identity points to this repository Pages deployment', () => {
-  assert.equal(siteUrl, 'https://vinasig.github.io/vinasig/');
+await test('Site identity points to the primary VINASIG domain', () => {
+  assert.equal(siteUrl, 'https://vinasig.io.vn/');
   assert(siteDescription.includes('VINASIG'));
   assert(!siteDescription.includes('vinasig.io.vn'));
 });

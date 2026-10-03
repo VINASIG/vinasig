@@ -40,10 +40,10 @@ for (const file of ['index.html', '404.html']) {
     const url = match[1];
     assert(typeof url === 'string');
     assert(
-      url.startsWith('/vinasig/'),
-      `Asset/link escapes deployment base: ${url}`,
+      !url.startsWith('//') && !url.startsWith('/vinasig/'),
+      `Asset/link must use the custom-domain root: ${url}`,
     );
-    const relative = url.slice('/vinasig/'.length);
+    const relative = url.slice(1);
     const filename = path.join(
       repositoryRoot,
       'dist',

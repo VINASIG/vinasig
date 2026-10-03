@@ -5,7 +5,7 @@ export const tools = [
     description:
       "Check Vietnam's military-service BMI criterion or standard adult categories.",
     detail: 'Direct height and weight inputs. Clear, sourced results.',
-    url: 'https://vinasig.github.io/bmi-calculator/',
+    url: 'https://bmi.vinasig.io.vn/',
     source: projectSource('bmi-calculator'),
     icon: 'calculator',
   },
@@ -15,7 +15,7 @@ export const tools = [
     description:
       'Create QR codes for links, text and Wi-Fi. Download PNG or SVG.',
     detail: 'Your content goes into the code. No redirect service.',
-    url: 'https://vinasig.github.io/qr-generator/',
+    url: 'https://qr.vinasig.io.vn/',
     source: projectSource('qr-generator'),
     icon: 'qr-code',
   },
@@ -25,7 +25,7 @@ export const tools = [
     description:
       'Turn one image into a favicon package, ready to add to your website.',
     detail: 'Preview the sizes and download a complete ZIP.',
-    url: 'https://vinasig.github.io/favicon-forge/',
+    url: 'https://favicon.vinasig.io.vn/',
     source: projectSource('favicon-forge'),
     icon: 'image',
   },
@@ -34,7 +34,7 @@ export const tools = [
     name: 'Unphar',
     description: 'Convert PHAR and ZIP archives directly in your browser.',
     detail: 'Inspect the archive and convert without uploading files.',
-    url: 'https://vinasig.github.io/unphar/',
+    url: 'https://unphar.vinasig.io.vn/',
     source: projectSource('unphar'),
     icon: 'archive',
   },
@@ -71,7 +71,7 @@ export const foundations = [
   },
 ] as const;
 
-export const siteUrl = 'https://vinasig.github.io/vinasig/';
+export const siteUrl = 'https://vinasig.io.vn/';
 export const siteDescription =
   'Discover VINASIG browser tools for BMI, QR codes, favicons and archives, alongside the standards and resources behind our projects.';
 
