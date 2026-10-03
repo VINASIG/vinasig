@@ -38,7 +38,7 @@ The source checks, native unit tests and available builds were executed across a
 
 | Repository              | Native tests observed                                 |
 | ----------------------- | ----------------------------------------------------- |
-| `agent-standards`       | 13 passed, plus quality fixtures                      |
+| `agent-standards`       | 15 passed, plus quality fixtures                      |
 | `bmi-calculator`        | 38 passed                                             |
 | `favicon-forge`         | 16 passed                                             |
 | `qr-generator`          | 19 passed                                             |
@@ -52,8 +52,14 @@ The two local clean installs in QR Generator and Favicon Forge encountered Windo
 
 An old agent-standards PR run contained a 320 px enlarged-heading overflow. Git history showed that `main` already repaired it before this audit. The current fixture passed 38 local Chromium and WebKit cases, so no duplicate layout patch was applied. Local Firefox cannot launch in this Windows environment and is checked through the configured CI matrix.
 
+## Dependency security limits
+
+An explicit `npm audit --json` was also executed for all nine lockfiles. Brand Assets and Organization Directory reported zero vulnerabilities. The other seven repositories retain high-severity affected package entries tracing to two upstream advisories: [braces](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) in Stylelint/glob tooling and [http-cache-semantics](https://github.com/advisories/GHSA-ch52-4w7c-c8xp) through Astro. Each repository's dependency audit records its actual count and dependency path.
+
+Both official registry latest releases are still within the affected ranges, and both reviewed advisories list no patched version. No forced downgrades, overrides, warnings suppression or vulnerability dismissals were applied. Repository-owned lint patterns and static Pages deployments limit the current exposure; they do not remove the advisories. Security audit outcomes remain **FAIL** in those seven repositories until supported upstream patches are available. Review by 17 October 2026 and before introducing untrusted glob inputs, a server deployment or a private remote-content cache.
+
 ## Final verification receipts
 
 This document records the reviewed maintenance candidate. Final pushed commit hashes, exact-revision CI outcomes, PR resolution receipts, HTTP and browser checks of public URLs, screenshots and logs are retained under ignored `output/org-audit-2026-10-03/`. Source commits cannot contain their own final hashes. Read the CI run for the published revision before concluding that deployment completed.
 
-The design-system repository documents phased adoption of strict lint, HTML validation, axe and performance presets. Its framework, content and browser checks do not certify full shared-preset adoption. Automated browser and axe checks in other projects are also partial evidence. Physical devices, screen readers, field performance, search indexing and independent SI-agent task trials are outside this maintenance verification and remain unverified.
+The design-system repository now runs axe in its browser matrix and still documents phased adoption of typed lint, Stylelint, generated-HTML validation and Lighthouse presets. Its framework, content and browser checks do not certify full shared-preset adoption. Automated browser and axe checks in other projects are also partial evidence. Physical devices, screen readers, field performance, search indexing and independent SI-agent task trials are outside this maintenance verification and remain unverified.
