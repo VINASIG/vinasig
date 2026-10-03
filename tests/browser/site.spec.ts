@@ -44,9 +44,11 @@ const standard = [
 ] as const;
 
 async function ready(page: Page) {
-  await page.evaluate(async () => {
-    await document.fonts.ready;
-  });
+  // The Firefox no-script context stalled in an async document.fonts.ready wait.
+  // Poll native status from Node without enabling scripting or dropping checks.
+  await expect
+    .poll(() => page.evaluate(() => document.fonts.status))
+    .toBe('loaded');
   await expect(
     page.getByRole('img', { name: 'VINASIG', exact: true }),
   ).toBeVisible();

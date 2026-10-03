@@ -1,0 +1,9 @@
+# Firefox no-script verification repair
+
+The first publication candidate was commit `01c837bc2a9f96f8bc63ba399fe432aaa95671dd`. Its [required workflow run](https://github.com/VINASIG/vinasig/actions/runs/37085308065) stopped before deployment. Both Linux and Windows passed source checks, 23 unit tests, the generated build and 229 browser cases each. Both jobs failed the two Firefox no-script-disabled light/dark cases, timing out inside `ready(page)` at an async `document.fonts.ready` evaluation.
+
+The job logs are preserved at `output/publication/ci-linux-job.log` and `ci-windows-job.log`; the first Linux artifact is at `output/publication/ci-linux-initial/`. Its failure screenshot was opened and the trace was read: the page rendered, but the async font evaluation never completed. The failure is in the readiness helper before the actual no-script destination/disclosure checks. It does not establish successful Firefox no-script usability.
+
+`tests/browser/site.spec.ts` now uses Playwright's Node-side `expect.poll` to evaluate the native `document.fonts.status` synchronously. It keeps JavaScript disabled for those cases and retains the font/image assertions, all destination and disclosure checks, screenshots, the original timeout and zero retries. No case is skipped and no application JavaScript is added. This also avoids a page-side Promise callback for the readiness wait on the other engines.
+
+The local source/unit/build and complete Chromium/WebKit browser suites are rerun before committing this repair. The next exact-commit Linux/Windows workflow must still check all three engines and complete deployment. Final CI, artifact-byte and live-page evidence belongs in `output/publication/receipt.json` after those actions actually succeed. The earlier pre-publication audit remains a record of the implementation measurements at that stage; this helper change does not alter the website's HTML, CSS or assets.

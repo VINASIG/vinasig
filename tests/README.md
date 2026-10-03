@@ -6,6 +6,8 @@ The homepage matrix covers 320x800, 360x800, 390x844, 440x800, 600x800, 759x1024
 
 The custom 404 checks the five standard sizes and 320 px in both themes, enlarging text at 320 px. Other tasks check no-script content, all exact destination links, storage/network privacy, native disclosure keyboard/touch behavior, skip activation, long unbroken synthetic content, reduced motion and metadata.
 
+Font readiness is polled from Node through a synchronous browser evaluation. Initial Firefox CI cases with JavaScript disabled stalled in the async document.fonts.ready evaluation. The Node-side poll preserves the disabled-script setting and every loading assertion while avoiding that page-side Promise wait.
+
 Firefox's Playwright context does not support isMobile emulation. Its touch task uses the same viewport and hasTouch with isMobile false. This is a browser task, not a claim of a real phone. On Windows WebKit, normal Tab can follow the platform's default focus traversal instead of visiting links. The skip activation test uses explicit DOM focus before Enter on that platform and does not certify native Tab traversal there. Chromium/Firefox and non-Windows WebKit check the initial Tab path.
 
 For a locally unavailable engine, record the exact launch failure and run the available engines. CI still requires all three before deployment:
