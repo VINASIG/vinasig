@@ -2,7 +2,19 @@
 import { ArrowDown, ArrowUpRight, ChevronRight } from '@lucide/astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { tools, foundations, siteUrl, siteDescription } from '../data/projects';
+import {
+  tools,
+  foundations,
+  siteUrl,
+  siteDescription,
+  toolDestination,
+} from '../data/projects';
+import dictionary from '../locales/vi.json';
+import { translateCopy } from '../lib/localization.ts';
+const lang = Astro.url.pathname.includes('/vi/') ? 'vi' : 'en';
+const canonical = siteUrl + (lang === 'vi' ? 'vi/' : '');
+const t = (value: string): string =>
+  lang === 'vi' ? translateCopy(value, dictionary) : value;
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -18,24 +30,25 @@ const schema = {
       '@type': 'WebSite',
       '@id': `${siteUrl}#website`,
       name: 'VINASIG',
-      url: siteUrl,
-      description: siteDescription,
-      inLanguage: 'en',
+      url: canonical,
+      description: t(siteDescription),
+      inLanguage: lang,
       publisher: { '@id': `${siteUrl}#organization` },
     },
     {
       '@type': 'CollectionPage',
-      '@id': `${siteUrl}#page`,
-      name: 'VINASIG projects',
-      url: siteUrl,
-      description: siteDescription,
+      '@id': `${canonical}#page`,
+      name: lang === 'vi' ? 'Các dự án VINASIG' : 'VINASIG projects',
+      url: canonical,
+      description: t(siteDescription),
+      inLanguage: lang,
       isPartOf: { '@id': `${siteUrl}#website` },
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: tools.map((tool, index) => ({
           '@type': 'ListItem',
           position: index + 1,
-          url: tool.url,
+          url: toolDestination(tool, lang),
           name: tool.name,
         })),
       },
@@ -67,7 +80,7 @@ const schema = {
     </header>
     <div class="tool-grid">
       {tools.map((tool) => (
-        <ToolCard tool={tool} />
+        <ToolCard tool={{ ...tool, url: toolDestination(tool, lang) }} />
       ))}
     </div>
     <p class="privacy-note">

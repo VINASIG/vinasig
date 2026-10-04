@@ -9,7 +9,7 @@ The public VINASIG website for discovering practical tools and the shared resour
 
 The homepage introduces BMI Calculator, QR Generator, Favicon Forge and Unphar. Each tool has separate website and source links. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
 
-The website is generated with Astro and TypeScript. Its content, navigation and native disclosures work without browser JavaScript. Fonts and artwork are served locally. There are no accounts, forms, analytics, cookies or browser storage in this application. Following a project or repository link opens that destination, which has its own hosting behavior.
+The website is generated with Astro and TypeScript. Its content, navigation and native disclosures work without browser JavaScript. Fonts and artwork are served locally. There are no accounts, forms, analytics or cookies. Only an explicit light or dark preference is saved in local storage. Following a project or repository link opens that destination, which has its own hosting behavior.
 
 VINASIG builds software and technology with Super Intelligence agents. SI is our preferred terminology, not a claim of an official industry renaming or a capability certification.
 
@@ -64,3 +64,7 @@ The public site uses [vinasig.io.vn](https://vinasig.io.vn/) at the origin root.
 VINASIG-authored software uses **AGPL-3.0-or-later**. Authored documentation uses **CC-BY-SA-4.0**. Commercial use is allowed under those standard licenses. Fonts and third-party components retain their original terms. Official VINASIG identity assets follow the separate brand policy.
 
 Read [LICENSE](LICENSE), [LICENSES.md](LICENSES.md), [VINASIG Brand Usage Policy](BRAND_POLICY.md) and [the licensing review](docs/audits/licensing-2026-10-04.md) for exact scopes, rationale and remaining review.
+
+## Languages and appearance
+
+English `/` and Vietnamese `/vi/` provide the same features with localized navigation, guidance and accessible controls. Use the compact EN or VI link and adjacent theme button. Only an explicit appearance preference is stored. Inputs and files remain local and unsaved. See [localization maintenance](docs/LOCALIZATION.md).

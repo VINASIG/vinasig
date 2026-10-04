@@ -8,7 +8,7 @@ import {
 } from '@lucide/astro';
 import { tools } from '../data/projects';
 interface Props {
-  tool: (typeof tools)[number];
+  tool: Omit<(typeof tools)[number], 'url'> & { url: string };
 }
 const { tool } = Astro.props;
 const icons = {

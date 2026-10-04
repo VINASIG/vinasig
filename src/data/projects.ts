@@ -3,7 +3,7 @@ export const tools = [
     slug: 'bmi-calculator',
     name: 'BMI Calculator',
     description:
-      "Check Vietnam's military-service BMI criterion or standard adult categories.",
+      'Check standard adult BMI categories and a healthy weight reference.',
     detail: 'Direct height and weight inputs. Clear, sourced results.',
     url: 'https://bmi.vinasig.io.vn/',
     source: projectSource('bmi-calculator'),
@@ -74,6 +74,22 @@ export const foundations = [
 export const siteUrl = 'https://vinasig.io.vn/';
 export const siteDescription =
   'Discover VINASIG browser tools for BMI, QR codes, favicons and archives, alongside the standards and resources behind our projects.';
+
+export function toolDestination(
+  tool: (typeof tools)[number],
+  lang: 'en' | 'vi',
+): string {
+  return (
+    tool.url +
+    (tool.slug === 'bmi-calculator'
+      ? lang === 'en'
+        ? 'en/'
+        : ''
+      : lang === 'vi'
+        ? 'vi/'
+        : '')
+  );
+}
 
 export function projectSource(slug: string): string {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))

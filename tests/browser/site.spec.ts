@@ -1,7 +1,12 @@
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { tools, foundations, siteUrl } from '../../src/data/projects.ts';
+import {
+  tools,
+  foundations,
+  siteUrl,
+  toolDestination,
+} from '../../src/data/projects.ts';
 import { startServer } from '../../scripts/serve.ts';
 import {
   record,
@@ -254,7 +259,7 @@ for (const theme of ['light', 'dark'] as const)
         for (const tool of tools) {
           await expect(
             page.getByRole('link', { name: `Open ${tool.name}`, exact: true }),
-          ).toHaveAttribute('href', tool.url);
+          ).toHaveAttribute('href', toolDestination(tool, 'en'));
           await expect(
             page.getByRole('link', {
               name: `Source for ${tool.name}`,

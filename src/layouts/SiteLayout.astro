@@ -2,6 +2,11 @@
 import '../styles/tokens.css';
 import '../styles/app.css';
 import { siteUrl, siteDescription } from '../data/projects';
+import ThemeInit from '../components/ThemeInit.astro';
+import SitePreferences from '../components/SitePreferences.astro';
+import Localized from '../components/Localized.astro';
+import dictionary from '../locales/vi.json';
+import { translateCopy } from '../lib/localization.ts';
 interface Props {
   title?: string;
   description?: string;
@@ -15,34 +20,55 @@ const {
   schema,
 } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const lang = Astro.url.pathname.includes('/vi/') ? 'vi' : 'en';
+const t = (value: string): string =>
+  lang === 'vi' ? translateCopy(value, dictionary) : value;
+const home = base + (lang === 'vi' ? 'vi/' : '');
+const canonical = siteUrl + (lang === 'vi' ? 'vi/' : '');
+const alternate = notFound
+  ? lang === 'vi'
+    ? `${base}404.html`
+    : `${base}vi/404/`
+  : lang === 'vi'
+    ? base
+    : `${base}vi/`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
+    <ThemeInit />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{t(title)}</title>
+    <meta name="description" content={t(description)} />
     {notFound ? (
       <meta name="robots" content="noindex" />
     ) : (
-      <link rel="canonical" href={siteUrl} />
+      <link rel="canonical" href={canonical} />
     )}
+    {!notFound && (
+      <>
+        <link rel="alternate" hreflang="en" href={siteUrl} />
+        <link rel="alternate" hreflang="vi" href={`${siteUrl}vi/`} />
+        <link rel="alternate" hreflang="x-default" href={siteUrl} />
+      </>
+    )}
+    <meta property="og:locale" content={lang === 'vi' ? 'vi_VN' : 'en_US'} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VINASIG" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={t(title)} />
+    <meta property="og:description" content={t(description)} />
     <meta
       property="og:url"
-      content={notFound ? `${siteUrl}404.html` : siteUrl}
+      content={notFound ? `${canonical}404.html` : canonical}
     />
     <meta property="og:image" content={`${siteUrl}brand/social.png`} />
-    <meta property="og:image:alt" content="VINASIG brand mark" />
+    <meta property="og:image:alt" content={t('VINASIG brand mark')} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={t(title)} />
+    <meta name="twitter:description" content={t(description)} />
     <meta name="twitter:image" content={`${siteUrl}brand/social.png`} />
     <link
       rel="icon"
@@ -73,46 +99,57 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
     {schema && (
       <script
         type="application/ld+json"
-        set:html={JSON.stringify(schema).replace(/</g, '\u003c')}
+        set:html={JSON.stringify(schema).replace(/</g, '\\u003c')}
       />
     )}
   </head>
   <body>
-    <a class="skip-link" href="#main">
-      Skip to content
-    </a>
-    <header class="site-header container">
-      <a class="brand" href={base} aria-label="VINASIG home" data-brand-logo>
-        <picture>
-          <source
-            media="(prefers-color-scheme: dark)"
-            srcset={`${base}brand/reversed.svg`}
-          />
-          <img
-            src={`${base}brand/primary-color.svg`}
-            alt="VINASIG"
-            width="540"
-            height="140"
-          />
-        </picture>
+    <Localized lang={lang}>
+      <a class="skip-link" href="#main">
+        Skip to content
       </a>
-      <nav aria-label="Main">
-        <a href={`${base}#tools`}>Projects</a>
-        <a href={`${base}#about`}>About</a>
-        <a href="https://github.com/VINASIG">GitHub</a>
-      </nav>
-    </header>
-    <main id="main" class="container" tabindex="-1">
-      <slot />
-    </main>
-    <footer class="site-footer container">
-      <p>VINASIG. Software and technology with SI agents.</p>
-      <div class="footer-links">
-        <a href="https://github.com/VINASIG/vinasig">Website source</a>
-        <a href="https://github.com/VINASIG/vinasig-org-directory">
-          Contact directory
+      <header class="site-header container">
+        <a class="brand" href={home} aria-label="VINASIG home" data-brand-logo>
+          <picture>
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcset={`${base}brand/reversed.svg`}
+            />
+            <script is:inline>
+              document.currentScript?.previousElementSibling?.setAttribute(
+                'media',
+                document.documentElement.dataset.theme === 'dark'
+                  ? 'all'
+                  : 'not all',
+              );
+            </script>
+            <img
+              src={`${base}brand/primary-color.svg`}
+              alt="VINASIG"
+              width="540"
+              height="140"
+            />
+          </picture>
         </a>
-      </div>
-    </footer>
+        <nav aria-label="Main">
+          <a href={`${home}#tools`}>Projects</a>
+          <a href={`${home}#about`}>About</a>
+          <a href="https://github.com/VINASIG">GitHub</a>
+        </nav>
+        <SitePreferences lang={lang} alternate={alternate} />
+      </header>
+      <main id="main" class="container" tabindex="-1">
+        <slot />
+      </main>
+      <footer class="site-footer container">
+        <p>VINASIG. Software and technology with SI agents.</p>
+        <div class="footer-links">
+          <a href="https://github.com/VINASIG/vinasig">Website source</a>
+          <a href="https://github.com/VINASIG/vinasig-org-directory">
+            Contact directory
+          </a>
+        </div>
+      </footer>
+    </Localized>
   </body>
 </html>

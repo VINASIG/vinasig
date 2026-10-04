@@ -47,7 +47,9 @@ for (const file of ['index.html', '404.html']) {
     const filename = path.join(
       repositoryRoot,
       'dist',
-      relative || 'index.html',
+      relative.endsWith('/')
+        ? `${relative}index.html`
+        : relative || 'index.html',
     );
     assert((await stat(filename)).isFile(), `Missing built resource ${url}`);
   }

@@ -7,7 +7,8 @@ import { startServer } from './serve.ts';
 import { repositoryRoot, writeOutput, readOptional } from './local.ts';
 
 const phase = process.argv.includes('--baseline') ? 'before' : 'after';
-const profile = 'home';
+const language = process.argv.includes('--vietnamese') ? 'vi' : 'en';
+const profile = language === 'vi' ? 'home-vi' : 'home';
 const root = path.join(repositoryRoot, 'dist');
 if (phase === 'before')
   assert(
@@ -18,6 +19,7 @@ if (phase === 'before')
     'Never overwrite the initial performance baseline',
   );
 const app = await startServer(root);
+const pageURL = new URL(language === 'vi' ? 'vi/' : '', app.url).href;
 const reservation = createServer();
 await new Promise<void>((resolve) => {
   reservation.listen(0, '127.0.0.1', resolve);
@@ -87,7 +89,7 @@ try {
         },
         throttlingMethod: 'simulate' as const,
       };
-      const result = record(await lighthouse(app.url, flags));
+      const result = record(await lighthouse(pageURL, flags));
       const lhr = record(result['lhr']);
       const audits = record(lhr['audits']);
       const categories = record(lhr['categories']);

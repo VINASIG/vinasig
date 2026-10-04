@@ -13,7 +13,7 @@ The four deployed tools and four public foundation repositories were verified ag
 
 ## Interface
 
-One English homepage contains a measured hero, four tool articles, a compact list of foundation resources, organization information and three native disclosures. Each tool has separately named website and source links. The header keeps all destinations visible and wraps naturally on narrow screens. There is no hover-only navigation, mobile drawer, search, filter or modal needed for an eight-entry inventory.
+English and Vietnamese homepages contain a measured hero, four tool articles, a compact list of foundation resources, organization information and three native disclosures. Each tool has separately named website and source links. The header keeps all destinations visible and wraps naturally on narrow screens. There is no hover-only navigation, mobile drawer, search, filter or modal needed for an eight-entry inventory.
 
 The generated 404 page shares identity, navigation and footer, has a working homepage return link, and is excluded from indexing. The owner authorized a custom-domain migration on 4 October 2026. GitHub Pages publishes the site at https://vinasig.io.vn/ with an origin-root base. See DOMAIN.md and DOMAINS.md for configuration and verification.
 
