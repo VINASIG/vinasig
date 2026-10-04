@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 import { startServer } from '../../scripts/serve.ts';
 import {
   inspectInterface,
+  inspectControlSurfaces,
   inspectHeaderBrand,
 } from '../../.vinasig/standards/templates/web/interface.mjs';
 import { captureFullPage } from '../../.vinasig/standards/templates/web/responsive.mjs';
@@ -38,6 +39,9 @@ for (const route of ['', '404.html'])
           });
           await page.goto(new URL(route, app.url).href);
           await captureFullPage(page, info, 'initial');
+          expect(
+            await page.locator('button,input,summary,[role=combobox]').count(),
+          ).toBeGreaterThan(0);
           expect(await page.evaluate(inspectHeaderBrand)).toEqual([]);
           const brand = page.locator('[data-brand-logo]');
           await brand.focus();
@@ -46,6 +50,7 @@ for (const route of ['', '404.html'])
           await brand.hover();
           expect(await page.evaluate(inspectHeaderBrand)).toEqual([]);
           expect(await page.evaluate(inspectInterface)).toEqual([]);
+          expect(await page.evaluate(inspectControlSurfaces)).toEqual([]);
           for (const disclosure of await page.locator('details').all()) {
             if (
               (await disclosure.isVisible()) &&
@@ -55,6 +60,7 @@ for (const route of ['', '404.html'])
           }
           await captureFullPage(page, info, 'expanded');
           expect(await page.evaluate(inspectInterface)).toEqual([]);
+          expect(await page.evaluate(inspectControlSurfaces)).toEqual([]);
 
           const widths = await page.evaluate(() => [
             document.documentElement.scrollWidth,
