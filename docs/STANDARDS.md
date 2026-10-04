@@ -1,8 +1,8 @@
 # Standards integration
 
-The website imports the `web-typescript` profile from VINASIG/agent-standards version 0.1.0 at commit `31b105622b1c70f6ad362eaaab429a9afa4b1a18`.
+The website imports the `web-typescript` profile from VINASIG/agent-standards version 0.1.0 at commit `59c4b39cfd5f6aa90050da529af1d9894cfe41fb`.
 
-The reviewed offline bundle digest is `e7d0fe4b417a782f0613a3367c458e9ff384fed1c43435f76c17252b5c7560e1`. Its dry-run paths and instruction block were reviewed before the installer was applied. The provenance file pins the bundle and manifest digests. The integrity gate checks the marked AGENTS.md block and all 38 managed payloads. Seven namespaced skills are installed locally.
+The reviewed offline bundle digest is `e6cd21c55a61f02466f767029f05a2d23898fed5a6fd386f08f733dcbbbf6439`. Its dry-run paths and instruction block were reviewed before the installer was applied. The provenance file pins the bundle and manifest digests. The integrity gate checks the marked AGENTS.md block and all 47 managed payloads. Seven namespaced skills are installed locally.
 
 Source enforcement uses Astro's strictest TypeScript profile with declaration checking, typed ESLint with zero warnings, Astro's parser, Stylelint on actual CSS, one formatter and validation of generated HTML. Consumer adaptation is explicit and does not modify the immutable snapshot. The formatter ignores managed snapshot files, artwork, fonts and the instruction entrypoint.
 
