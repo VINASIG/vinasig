@@ -4,6 +4,8 @@ import {
   QrCode,
   Image as ImageIcon,
   Archive,
+  ScanLine,
+  KeyRound,
   ArrowUpRight,
 } from '@lucide/astro';
 import { tools } from '../data/projects';
@@ -16,6 +18,8 @@ const icons = {
   'qr-code': QrCode,
   image: ImageIcon,
   archive: Archive,
+  'scan-line': ScanLine,
+  'key-round': KeyRound,
 };
 const Icon = icons[tool.icon];
 ---

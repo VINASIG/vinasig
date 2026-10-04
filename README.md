@@ -7,7 +7,7 @@ The public VINASIG website for discovering practical tools and the shared resour
 
 ## What is here
 
-The homepage introduces BMI Calculator, QR Generator, Favicon Forge and Unphar. Each tool has separate website and source links. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
+The homepage introduces BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Favicon Forge and Unphar. Each tool has separate website and source links. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
 
 The website is generated with Astro and TypeScript. Its content, navigation and native disclosures work without browser JavaScript. Fonts and artwork are served locally. There are no accounts, forms, analytics or cookies. Only an explicit light or dark preference is saved in local storage. Following a project or repository link opens that destination, which has its own hosting behavior.
 

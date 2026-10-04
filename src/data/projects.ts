@@ -20,6 +20,27 @@ export const tools = [
     icon: 'qr-code',
   },
   {
+    slug: 'qr-scanner',
+    name: 'QR Scanner',
+    description:
+      'Read QR codes from pasted images, files, image links or cameras.',
+    detail:
+      'See the complete content and available code details. Images stay on your device.',
+    url: 'https://scan.vinasig.io.vn/',
+    source: projectSource('qr-scanner'),
+    icon: 'scan-line',
+  },
+  {
+    slug: 'totp-generator',
+    name: 'TOTP Generator',
+    description: 'Generate time-based verification codes from your secret key.',
+    detail:
+      'Codes update automatically. Your key stays in this browser session.',
+    url: 'https://totp.vinasig.io.vn/',
+    source: projectSource('totp-generator'),
+    icon: 'key-round',
+  },
+  {
     slug: 'favicon-forge',
     name: 'Favicon Forge',
     description:
@@ -73,7 +94,7 @@ export const foundations = [
 
 export const siteUrl = 'https://vinasig.io.vn/';
 export const siteDescription =
-  'Discover VINASIG browser tools for BMI, QR codes, favicons and archives, alongside the standards and resources behind our projects.';
+  'Discover VINASIG tools for BMI, creating and scanning QR codes, verification codes, favicons and archives, alongside our shared project resources.';
 
 export function toolDestination(
   tool: (typeof tools)[number],
@@ -81,7 +102,9 @@ export function toolDestination(
 ): string {
   return (
     tool.url +
-    (tool.slug === 'bmi-calculator'
+    (tool.slug === 'bmi-calculator' ||
+    tool.slug === 'qr-scanner' ||
+    tool.slug === 'totp-generator'
       ? lang === 'en'
         ? 'en/'
         : ''
