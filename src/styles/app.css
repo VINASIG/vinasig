@@ -138,26 +138,26 @@ svg {
   height: auto;
 }
 
-.site-header nav {
+.hero {
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.project-navigation {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-6);
 }
 
-.site-header nav a {
+.project-navigation a {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: 44px;
   color: var(--color-text);
   text-decoration: none;
 }
 
-.site-header nav a:hover {
+.project-navigation a:hover {
   text-decoration: underline;
-}
-
-.hero {
-  padding-block: var(--space-12) var(--space-16);
 }
 
 .hero-copy {
@@ -355,10 +355,6 @@ details[open] summary svg {
 @media (width <= 760px) {
   .site-header {
     padding-block: var(--space-4);
-  }
-
-  .site-header nav {
-    gap: var(--space-2) var(--space-4);
   }
 
   .hero {

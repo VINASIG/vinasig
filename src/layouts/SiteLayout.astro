@@ -1,4 +1,6 @@
 ---
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/site-chrome.css';
 import '../styles/tokens.css';
 import '../styles/app.css';
 import '../styles/control-surfaces.css';
@@ -109,7 +111,7 @@ const alternate = notFound
       <a class="skip-link" href="#main">
         Skip to content
       </a>
-      <header class="site-header container">
+      <header class="site-header chrome-container" data-site-header>
         <a
           class="brand"
           href="https://vinasig.io.vn/"
@@ -137,25 +139,28 @@ const alternate = notFound
             />
           </picture>
         </a>
-        <nav aria-label="Main">
-          <a href={`${home}#tools`}>Projects</a>
-          <a href={`${home}#about`}>About</a>
-          <a href="https://github.com/VINASIG">GitHub</a>
-        </nav>
+
         <SitePreferences lang={lang} alternate={alternate} />
       </header>
+      <nav class="project-navigation container" aria-label="Main">
+        <a href={`${home}#tools`}>Projects</a>
+        <a href={`${home}#about`}>About</a>
+        <a href="https://github.com/VINASIG">GitHub</a>
+      </nav>
       <main id="main" class="container" tabindex="-1">
         <slot />
       </main>
-      <footer class="site-footer container">
-        <p>VINASIG. Software and technology with SI agents.</p>
-        <div class="footer-links">
-          <a href="https://github.com/VINASIG/vinasig">Website source</a>
-          <a href="https://github.com/VINASIG/vinasig-org-directory">
-            Contact directory
-          </a>
-        </div>
-      </footer>
+      <SiteFooter
+        lang={lang}
+        source="https://github.com/VINASIG/vinasig"
+        issues="https://github.com/VINASIG/vinasig/issues"
+        licenses={`${base}licenses/NOTICE.txt`}
+        class="chrome-container"
+      >
+        <a href="https://github.com/VINASIG/vinasig-org-directory">
+          Contact directory
+        </a>
+      </SiteFooter>
     </Localized>
   </body>
 </html>
