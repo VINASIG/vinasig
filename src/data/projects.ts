@@ -8,6 +8,13 @@ export const tools = [
     url: 'https://bmi.vinasig.io.vn/',
     source: projectSource('bmi-calculator'),
     icon: 'calculator',
+    searchTerms: [
+      'body mass index',
+      'chi so khoi co the',
+      'suc khoe',
+      'can nang',
+      'chieu cao',
+    ],
   },
   {
     slug: 'qr-generator',
@@ -18,6 +25,15 @@ export const tools = [
     url: 'https://qr.vinasig.io.vn/',
     source: projectSource('qr-generator'),
     icon: 'qr-code',
+    searchTerms: [
+      'create qr',
+      'tao ma qr',
+      'wifi',
+      'contact',
+      'email',
+      'sms',
+      'lien ket',
+    ],
   },
   {
     slug: 'qr-scanner',
@@ -29,6 +45,15 @@ export const tools = [
     url: 'https://scan.vinasig.io.vn/',
     source: projectSource('qr-scanner'),
     icon: 'scan-line',
+    searchTerms: [
+      'decode qr',
+      'quet qr',
+      'doc qr',
+      'webcam',
+      'clipboard',
+      'ctrl v',
+      'dan anh',
+    ],
   },
   {
     slug: 'totp-generator',
@@ -39,6 +64,14 @@ export const tools = [
     url: 'https://totp.vinasig.io.vn/',
     source: projectSource('totp-generator'),
     icon: 'key-round',
+    searchTerms: [
+      'otp',
+      '2fa',
+      'authenticator',
+      'authentication',
+      'ma xac thuc',
+      'bao mat',
+    ],
   },
   {
     slug: 'favicon-forge',
@@ -49,6 +82,7 @@ export const tools = [
     url: 'https://favicon.vinasig.io.vn/',
     source: projectSource('favicon-forge'),
     icon: 'image',
+    searchTerms: ['ico', 'icon', 'logo', 'bieu tuong', 'anh', 'website'],
   },
   {
     slug: 'unphar',
@@ -58,6 +92,7 @@ export const tools = [
     url: 'https://unphar.vinasig.io.vn/',
     source: projectSource('unphar'),
     icon: 'archive',
+    searchTerms: ['archive', 'convert', 'tep nen', 'chuyen doi'],
   },
 ] as const;
 

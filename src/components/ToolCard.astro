@@ -24,7 +24,18 @@ const icons = {
 const Icon = icons[tool.icon];
 ---
 
-<article class="tool-card" aria-labelledby={`${tool.slug}-title`}>
+<article
+  class="tool-card"
+  aria-labelledby={`${tool.slug}-title`}
+  data-tool-card
+  data-search-terms={[
+    tool.slug,
+    tool.name,
+    tool.description,
+    tool.detail,
+    ...tool.searchTerms,
+  ].join(' ')}
+>
   <div class="card-heading">
     <Icon class="tool-icon" size={26} stroke-width={1.75} aria-hidden="true" />
     <h3 id={`${tool.slug}-title`}>{tool.name}</h3>

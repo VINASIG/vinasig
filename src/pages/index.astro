@@ -1,7 +1,7 @@
 ---
 import { ArrowDown, ArrowUpRight, ChevronRight } from '@lucide/astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
-import ToolCard from '../components/ToolCard.astro';
+import ToolCatalog from '../components/ToolCatalog.astro';
 import {
   tools,
   foundations,
@@ -78,11 +78,7 @@ const schema = {
       <h2 id="tools-title">Tools for everyday tasks</h2>
       <p>Open a tool and get to work. No account required.</p>
     </header>
-    <div class="tool-grid">
-      {tools.map((tool) => (
-        <ToolCard tool={{ ...tool, url: toolDestination(tool, lang) }} />
-      ))}
-    </div>
+    <ToolCatalog lang={lang} />
     <p class="privacy-note">
       Inputs and files are processed in your browser. Our tools do not upload
       them to a server.

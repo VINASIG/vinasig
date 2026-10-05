@@ -83,5 +83,19 @@
   "Source code": "Mã nguồn",
   "Report an issue": "Báo lỗi",
   "Licenses": "Giấy phép",
-  "Website information": "Thông tin website"
+  "Website information": "Thông tin website",
+  "{count} tools": "{count} công cụ",
+  "1 tool": "1 công cụ",
+  "All tools": "Tất cả công cụ",
+  "Clear search": "Xóa tìm kiếm",
+  "For example QR, BMI or favicon": "Ví dụ QR, BMI hoặc favicon",
+  "Go to page {page}": "Đến trang {page}",
+  "Next page": "Trang sau",
+  "No tools found": "Không tìm thấy công cụ",
+  "Previous page": "Trang trước",
+  "Search tools": "Tìm công cụ",
+  "Show all tools": "Xem tất cả công cụ",
+  "Showing {start} - {end} of {count} tools": "Hiển thị {start} - {end} trong {count} công cụ",
+  "Tool pages": "Các trang công cụ",
+  "Try another name or task.": "Thử tên khác hoặc công việc bạn cần làm."
 }

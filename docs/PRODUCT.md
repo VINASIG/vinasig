@@ -13,13 +13,15 @@ The six tools are BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Favi
 
 ## Interface
 
-English and Vietnamese homepages contain a measured hero, six tool articles, a compact list of foundation resources, organization information and three native disclosures. Each tool has separately named website and source links. The header keeps all destinations visible and wraps naturally on narrow screens. There is no hover-only navigation, mobile drawer, search, filter or modal needed for an ten-entry inventory.
+English and Vietnamese homepages contain a measured hero, the tool catalog, a compact list of foundation resources, organization information and three native disclosures. Each tool has separately named website and source links. The header keeps all destinations visible and wraps naturally on narrow screens. There is no hover-only navigation, mobile drawer or modal.
+
+The owner requested tool search and pagination on 5 October 2026 in preparation for a growing catalog. The browser filters names, descriptions and curated English/Vietnamese task aliases as the visitor types. Vietnamese accents and letter case are optional. Each page shows up to six matches. Previous, next and numbered controls appear only when more than one page is needed. A changed query starts at page one. Empty results offer a named action to show all tools again. The current query and page use the URL for bookmarks and browser history. Search does not include foundation resources.
 
 The generated 404 page shares identity, navigation and footer, has a working homepage return link, and is excluded from indexing. The owner authorized a custom-domain migration on 4 October 2026. GitHub Pages publishes the site at https://vinasig.io.vn/ with an origin-root base. See DOMAIN.md and DOMAINS.md for configuration and verification.
 
 ## Privacy and delivery
 
-The website requires no JavaScript for content, links or disclosures. The optional theme control stores only an explicit appearance preference. It makes no runtime repository API calls and sets no cookies. Page hosting receives ordinary HTTP requests. Visitors navigate to external project and GitHub destinations through real links. No messages are sent to others and no visitor measurement is collected.
+The website requires no JavaScript for content, links or disclosures. All tools remain present in generated HTML. Search and pagination progressively enhance that list and are hidden when scripts are unavailable. The optional theme control stores only an explicit appearance preference. Search uses no fetch, repository API, cookies or browser storage. Updating the URL does not make a network request. Opening or reloading a search URL can send its query string to ordinary static hosting. Visitors navigate to external project and GitHub destinations through real links. No messages are sent to others and no visitor measurement is collected.
 
 ## Acceptance
 

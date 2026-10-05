@@ -22,6 +22,10 @@ Read `docs/LOCALIZATION.md`. Both locales must include navigation, accessible na
 
 Read docs/SITE_CHROME.md before header or footer changes. Keep shared chrome consistent and run npm run test:chrome.
 
+## Tool catalog
+
+Read docs/TOOL_CATALOG.md before changing discovery or adding an inventory entry. The owner authorized search and pagination on 5 October 2026. Keep one source of truth in src/data/projects.ts, including useful English and Vietnamese searchTerms. Do not hardcode tool counts or duplicate card inventories. Preserve automatic six-item pagination, accent-insensitive live search, nearby result counts and empty-state recovery. Search controls must have complete theme styling, named clear actions, 44 px targets and working keyboard/IME behavior. Keep all tool links in static HTML and hide enhancements until their handlers are installed. Search uses no browser storage or remote API. Only the explicit q/page URL state is shareable. Preserve canonical metadata and existing language-navigation behavior.
+
 <!-- VINASIG STANDARDS BEGIN -->
 ## VINASIG SI agent standards 0.1.0
 

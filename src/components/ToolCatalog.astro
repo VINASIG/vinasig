@@ -1,0 +1,101 @@
+---
+import { Search, X, ChevronLeft, ChevronRight } from '@lucide/astro';
+import ToolCard from './ToolCard.astro';
+import { tools, toolDestination } from '../data/projects';
+import { translateCopy } from '../lib/localization';
+import dictionary from '../locales/vi.json';
+import '../styles/tool-catalog.css';
+
+interface Props {
+  lang: 'en' | 'vi';
+}
+const { lang } = Astro.props;
+const t = (value: string): string =>
+  lang === 'vi' ? translateCopy(value, dictionary) : value;
+// Adding inventory entries automatically extends the same result set and pager.
+const pageSize = 6;
+---
+
+<div class="tool-catalog" data-tool-catalog data-page-size={pageSize}>
+  <div class="tool-search" role="search" aria-label="Search tools" hidden>
+    <label for="tool-search">Search tools</label>
+    <div class="tool-search-field">
+      <Search size={20} aria-hidden="true" />
+      <input
+        id="tool-search"
+        type="search"
+        placeholder="For example QR, BMI or favicon"
+        autocomplete="off"
+        spellcheck="false"
+        maxlength="200"
+        aria-controls="tool-results"
+        disabled
+      />
+      <button
+        class="catalog-button search-clear"
+        type="button"
+        data-search-clear
+        aria-label="Clear search"
+        hidden
+        disabled
+      >
+        <X size={20} aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+  <p
+    class="tool-results-summary"
+    data-tool-summary
+    data-count={t('{count} tools')}
+    data-single={t('1 tool')}
+    data-range={t('Showing {start} - {end} of {count} tools')}
+    tabindex="-1"
+    role="status"
+    aria-atomic="true"
+  >
+    All tools
+  </p>
+  <div id="tool-results" class="tool-grid">
+    {tools.map((tool) => (
+      <ToolCard tool={{ ...tool, url: toolDestination(tool, lang) }} />
+    ))}
+  </div>
+  <div class="tool-empty" data-tool-empty hidden>
+    <Search size={28} aria-hidden="true" />
+    <h3>No tools found</h3>
+    <p>Try another name or task.</p>
+    <button class="catalog-button" type="button" data-search-reset disabled>
+      Show all tools
+    </button>
+  </div>
+  <nav class="tool-pagination" aria-label="Tool pages" hidden>
+    <button
+      class="catalog-button"
+      type="button"
+      data-page-previous
+      aria-label="Previous page"
+      aria-controls="tool-results"
+      disabled
+    >
+      <ChevronLeft size={20} aria-hidden="true" />
+    </button>
+    <ol
+      class="tool-pages"
+      data-tool-pages
+      data-label={t('Go to page {page}')}
+    />
+    <button
+      class="catalog-button"
+      type="button"
+      data-page-next
+      aria-label="Next page"
+      aria-controls="tool-results"
+      disabled
+    >
+      <ChevronRight size={20} aria-hidden="true" />
+    </button>
+  </nav>
+</div>
+<script>
+  import '../scripts/tool-catalog';
+</script>

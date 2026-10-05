@@ -9,7 +9,9 @@ The public VINASIG website for discovering practical tools and the shared resour
 
 The homepage introduces BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Favicon Forge and Unphar. Each tool has separate website and source links. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
 
-The website is generated with Astro and TypeScript. Its content, navigation and native disclosures work without browser JavaScript. Fonts and artwork are served locally. There are no accounts, forms, analytics or cookies. Only an explicit light or dark preference is saved in local storage. Following a project or repository link opens that destination, which has its own hosting behavior.
+Search tools by name or task as you type. English and Vietnamese terms work in either locale, including Vietnamese without accents. Results use six tools per page, with numbered navigation when more than one page is needed. The search and page can be bookmarked through `q` and `page` URL parameters. Clearing the search restores the complete catalog.
+
+The website is generated with Astro and TypeScript. Its content, navigation and native disclosures work without browser JavaScript. Without scripts, every tool remains listed and enhancement controls stay hidden. Fonts and artwork are served locally. There are no accounts, submission forms, analytics or cookies. Only an explicit light or dark preference is saved in local storage. Search filtering needs no server request or storage. Search terms in a bookmarked or reloaded URL can be included in ordinary hosting requests. Following a project or repository link opens that destination, which has its own hosting behavior.
 
 VINASIG builds software and technology with Super Intelligence agents. SI is our preferred terminology, not a claim of an official industry renaming or a capability certification.
 
@@ -39,7 +41,7 @@ See [the browser test guide](tests/README.md), [toolchain decisions](docs/TOOLCH
 
 ## Maintain the project inventory
 
-Update `src/data/projects.ts` after reviewing the actual public repository, deployed destination and supported behavior. Keep tools and foundation resources distinct. Do not turn private, archived, missing or unverified repositories into public website entries. The website does not fetch organization metadata at runtime, expose access tokens or depend on GitHub API quotas.
+Update `src/data/projects.ts` after reviewing the actual public repository, deployed destination and supported behavior. Add useful English and Vietnamese task aliases to `searchTerms` with each tool. The same inventory generates the cards, search index, pagination and structured data. Keep tools and foundation resources distinct. Do not turn private, archived, missing or unverified repositories into public website entries. The website does not fetch organization metadata at runtime, expose access tokens or depend on GitHub API quotas. See [tool catalog maintenance](docs/TOOL_CATALOG.md).
 
 ## Publication
 
