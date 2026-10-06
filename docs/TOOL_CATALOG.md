@@ -4,7 +4,7 @@ Requested by the owner on 5 October 2026. This is a static-site enhancement for 
 
 ## Source and behavior
 
-- `src/data/projects.ts` is the single inventory for tool cards, search and structured data. Keep verified destinations and product descriptions there. Each entry includes English and Vietnamese task aliases in `searchTerms`. Aliases must describe supported behavior.
+- `src/data/projects.ts` is the single inventory for tool cards, search and structured data. Keep verified destinations and product descriptions there. Each tool entry includes English and Vietnamese task aliases in `searchTerms`. Aliases must describe supported behavior. The separate foundations and Data and libraries inventories render outside tool search and pagination.
 - `src/components/ToolCatalog.astro` renders every tool into HTML and defines the page size of six. Do not maintain a second inventory or hardcoded tool count. Pagination follows the actual inventory and filtered results. The nine-tool inventory occupies two pages, while a query with at most six matches hides the pager.
 - `src/scripts/tool-catalog.ts` builds a local index from those aliases, the original copy and the rendered localized card text. Matching ignores letter case, combining accents and Vietnamese `đ`. Every whitespace-separated term must match the same card. Literal input never becomes HTML.
 - Results update after a 150 ms pause. Enter applies immediately. IME composition is allowed to finish before filtering. A query change resets to page one. The clear button, Escape and empty-state action clear the query and restore the list, returning focus to the input.

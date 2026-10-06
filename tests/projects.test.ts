@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import {
   tools,
   foundations,
+  dataAndLibraries,
   projectSource,
   siteUrl,
   siteDescription,
@@ -30,7 +31,7 @@ for (const tool of tools) {
   });
 }
 
-for (const project of [...tools, ...foundations]) {
+for (const project of [...tools, ...foundations, ...dataAndLibraries]) {
   await test(`${project.name} has a safe, canonical VINASIG repository reference`, () => {
     assert.equal(
       'source' in project ? project.source : project.url,
@@ -58,10 +59,13 @@ for (const tool of tools) {
   });
 }
 await test('The curated inventory has distinct public project identities', () => {
-  const slugs = [...tools, ...foundations].map((project) => project.slug);
+  const slugs = [...tools, ...foundations, ...dataAndLibraries].map(
+    (project) => project.slug,
+  );
   assert.equal(new Set(slugs).size, slugs.length);
   assert.equal(tools.length, 9);
-  assert.equal(foundations.length, 5);
+  assert.equal(foundations.length, 4);
+  assert.equal(dataAndLibraries.length, 1);
 });
 await test('Site identity points to the primary VINASIG domain', () => {
   assert.equal(siteUrl, 'https://vinasig.io.vn/');

@@ -4,6 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 import {
   tools,
   foundations,
+  dataAndLibraries,
   siteUrl,
   toolDestination,
 } from '../../src/data/projects.ts';
@@ -279,10 +280,25 @@ for (const theme of ['light', 'dark'] as const)
             }),
           ).toHaveAttribute('href', tool.source);
         }
-        for (const project of foundations)
+        for (const project of [...foundations, ...dataAndLibraries])
           await expect(
             page.getByRole('link', { name: project.name, exact: true }),
           ).toHaveAttribute('href', project.url);
+        await expect(
+          page.locator('#data-and-libraries').getByRole('link', {
+            name: 'Vietnamese Passphrase',
+            exact: true,
+          }),
+        ).toHaveAttribute(
+          'href',
+          'https://github.com/VINASIG/vietnamese-passphrase',
+        );
+        await expect(
+          page.locator('#foundations').getByRole('link', {
+            name: 'Vietnamese Passphrase',
+            exact: true,
+          }),
+        ).toHaveCount(0);
         await page.locator('summary').nth(1).click();
         await expect(
           page.getByText('SI stands for Super Intelligence.', { exact: false }),

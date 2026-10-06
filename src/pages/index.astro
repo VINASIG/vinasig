@@ -5,6 +5,7 @@ import ToolCatalog from '../components/ToolCatalog.astro';
 import {
   tools,
   foundations,
+  dataAndLibraries,
   siteUrl,
   siteDescription,
   toolDestination,
@@ -91,6 +92,29 @@ const schema = {
     </header>
     <div class="foundation-list">
       {foundations.map((project) => (
+        <article class="foundation" aria-labelledby={`${project.slug}-title`}>
+          <h3 id={`${project.slug}-title`}>
+            <a href={project.url}>
+              {project.name}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </h3>
+          <p>{project.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section
+    id="data-and-libraries"
+    class="section"
+    aria-labelledby="data-and-libraries-title"
+  >
+    <header class="section-heading">
+      <h2 id="data-and-libraries-title">Data and libraries</h2>
+      <p>Reusable datasets and libraries for other projects.</p>
+    </header>
+    <div class="foundation-list">
+      {dataAndLibraries.map((project) => (
         <article class="foundation" aria-labelledby={`${project.slug}-title`}>
           <h3 id={`${project.slug}-title`}>
             <a href={project.url}>

@@ -2,7 +2,12 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { FileSystemConfigLoader, HtmlValidate } from 'html-validate';
-import { tools, foundations, siteUrl } from '../src/data/projects.ts';
+import {
+  tools,
+  foundations,
+  dataAndLibraries,
+  siteUrl,
+} from '../src/data/projects.ts';
 import {
   digest,
   readLocal,
@@ -64,7 +69,7 @@ for (const file of ['index.html', '404.html']) {
     assert(schema);
     const graph = record(parseJson(Buffer.from(schema)))['@graph'];
     assert(Array.isArray(graph) && graph.length === 3);
-    for (const project of [...tools, ...foundations]) {
+    for (const project of [...tools, ...foundations, ...dataAndLibraries]) {
       assert(html.includes(project.name));
       assert(html.includes(project.url));
     }

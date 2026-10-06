@@ -166,13 +166,6 @@ export const tools = [
 
 export const foundations = [
   {
-    slug: 'vietnamese-passphrase',
-    name: 'Vietnamese Passphrase',
-    description:
-      'Vietnamese wordlists for passphrases, with source evidence and a local reference generator. Research preview.',
-    url: projectSource('vietnamese-passphrase'),
-  },
-  {
     slug: 'agent-standards',
     name: 'Agent Standards',
     description:
@@ -199,6 +192,16 @@ export const foundations = [
     description:
       'Public organization profiles, community links and contact channels.',
     url: projectSource('vinasig-org-directory'),
+  },
+] as const;
+
+export const dataAndLibraries = [
+  {
+    slug: 'vietnamese-passphrase',
+    name: 'Vietnamese Passphrase',
+    description:
+      'Vietnamese wordlists for passphrases, with source evidence and a local reference generator. Research preview.',
+    url: projectSource('vietnamese-passphrase'),
   },
 ] as const;
 

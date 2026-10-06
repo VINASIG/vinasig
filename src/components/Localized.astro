@@ -21,7 +21,7 @@ const links: Record<string, string> = {};
 for (const route of routes)
   links[base + route] =
     base + '/vi' + (route === '/404.html' ? '/404/' : route);
-for (const hash of ['tools', 'about', 'foundations'])
+for (const hash of ['tools', 'about', 'foundations', 'data-and-libraries'])
   links[base + '/#' + hash] = base + '/vi/#' + hash;
 const content = lang === 'vi' ? translateHtml(html, dictionary, links) : html;
 ---
