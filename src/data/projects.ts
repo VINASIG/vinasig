@@ -74,6 +74,30 @@ export const tools = [
     ],
   },
   {
+    slug: 'password-generator',
+    name: 'Password Generator',
+    description:
+      'Generate passwords and English or Vietnamese passphrases on your device.',
+    detail:
+      'Standalone offline files. Research preview with experimental Vietnamese lists.',
+    url: 'https://password.vinasig.io.vn/',
+    source: projectSource('password-generator'),
+    icon: 'key-round',
+    searchTerms: [
+      'password',
+      'passphrase',
+      'random',
+      'wordlist',
+      'eff',
+      'mat khau',
+      'tao mat khau',
+      'cum tu',
+      'tieng viet',
+      'bao mat',
+      'offline',
+    ],
+  },
+  {
     slug: 'metadata-cleaner',
     name: 'Metadata Cleaner',
     description:
@@ -207,7 +231,7 @@ export const dataAndLibraries = [
 
 export const siteUrl = 'https://vinasig.io.vn/';
 export const siteDescription =
-  'Discover VINASIG browser tools for image and file metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.';
+  'Discover VINASIG browser tools for passwords, passphrases, metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.';
 
 export function toolDestination(
   tool: (typeof tools)[number],
@@ -218,6 +242,7 @@ export function toolDestination(
     (tool.slug === 'bmi-calculator' ||
     tool.slug === 'qr-scanner' ||
     tool.slug === 'totp-generator' ||
+    tool.slug === 'password-generator' ||
     tool.slug === 'metadata-cleaner' ||
     tool.slug === 'metadata-reader' ||
     tool.slug === 'metadata-editor'

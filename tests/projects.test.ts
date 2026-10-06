@@ -16,6 +16,7 @@ for (const tool of tools) {
       'bmi-calculator',
       'qr-scanner',
       'totp-generator',
+      'password-generator',
       'metadata-cleaner',
       'metadata-reader',
       'metadata-editor',
@@ -50,6 +51,7 @@ for (const tool of tools) {
       unphar: 'https://unphar.vinasig.io.vn/',
       'qr-scanner': 'https://scan.vinasig.io.vn/',
       'totp-generator': 'https://totp.vinasig.io.vn/',
+      'password-generator': 'https://password.vinasig.io.vn/',
       'metadata-cleaner': 'https://clean.vinasig.io.vn/',
       'metadata-reader': 'https://metadata.vinasig.io.vn/',
       'metadata-editor': 'https://edit.vinasig.io.vn/',
@@ -63,7 +65,7 @@ await test('The curated inventory has distinct public project identities', () =>
     (project) => project.slug,
   );
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.equal(tools.length, 9);
+  assert.equal(tools.length, 10);
   assert.equal(foundations.length, 4);
   assert.equal(dataAndLibraries.length, 1);
 });

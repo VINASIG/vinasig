@@ -9,7 +9,7 @@ The website gives visitors a clear entry point into VINASIG projects. The owner 
 - Find the actual source, shared standards and organization contact directory.
 - Understand VINASIG and its use of SI agents without unsupported capability claims.
 
-The nine tools are BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Metadata Cleaner, Metadata Reader, Metadata Editor, Favicon Forge and Unphar. Each has its own canonical website and source repository. The metadata tools remove optional image metadata, inspect supported file metadata and edit XMP locally without re-encoding images. Public foundation repositories supply shared standards, design, brand and organization resources. A separate Data and libraries section follows the foundations. It contains Vietnamese Passphrase wordlists and a local reference generator marked as a research preview. Medical interpretation stays in the dedicated BMI tool.
+The ten tools are BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Password Generator, Metadata Cleaner, Metadata Reader, Metadata Editor, Favicon Forge and Unphar. Each has its own canonical website and source repository. Password Generator creates passwords and English or experimental Vietnamese passphrases locally and supplies standalone offline files. It remains a research preview. The metadata tools remove optional image metadata, inspect supported file metadata and edit XMP locally without re-encoding images. Public foundation repositories supply shared standards, design, brand and organization resources. A separate Data and libraries section follows the foundations. It contains Vietnamese Passphrase wordlists and a local reference generator marked as a research preview. Medical interpretation stays in the dedicated BMI tool.
 
 ## Interface
 
@@ -29,4 +29,4 @@ Run source, inventory, generated HTML, preserved asset, browser and lab performa
 
 ## Catalog maintenance
 
-Keep QR Scanner at https://scan.vinasig.io.vn/ and TOTP Generator at https://totp.vinasig.io.vn/. Both use Vietnamese at / and English at /en/. Existing English-first tools use /vi/ for Vietnamese. Website links and structured data must target the visitor's language. Repository descriptions focus on the tool's purpose rather than treating localization as its main feature.
+Keep QR Scanner at https://scan.vinasig.io.vn/, TOTP Generator at https://totp.vinasig.io.vn/ and Password Generator at https://password.vinasig.io.vn/. These use Vietnamese at / and English at /en/. Existing English-first tools use /vi/ for Vietnamese. Website links and structured data must target the visitor's language. Repository descriptions focus on the tool's purpose rather than treating localization as its main feature.
