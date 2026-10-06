@@ -99,12 +99,15 @@ export const tools = [
     name: 'Metadata Reader',
     description:
       'Inspect metadata in images, PDF, media and Office files locally.',
-    detail: 'Search detected fields and download a JSON report.',
+    detail: 'Read supported C2PA origin claims, search fields and export JSON.',
     url: 'https://metadata.vinasig.io.vn/',
     source: projectSource('metadata-reader'),
     icon: 'file-search',
     searchTerms: [
       'read metadata',
+      'c2pa',
+      'content credentials',
+      'nguon goc anh',
       'exif',
       'pdf',
       'audio',
