@@ -7,7 +7,7 @@ The public VINASIG website for discovering practical tools and the shared resour
 
 ## What is here
 
-The homepage introduces BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Favicon Forge and Unphar. Each tool has separate website and source links. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
+The homepage introduces BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Metadata Cleaner, Metadata Reader, Favicon Forge and Unphar. Each tool has separate website and source links. The metadata tools remove optional image metadata without re-encoding and inspect supported file metadata locally. The foundations section points to Agent Standards, Web Design System, Brand Assets and Organization Directory.
 
 Search tools by name or task as you type. English and Vietnamese terms work in either locale, including Vietnamese without accents. Results use six tools per page, with numbered navigation when more than one page is needed. The search and page can be bookmarked through `q` and `page` URL parameters. Clearing the search restores the complete catalog.
 

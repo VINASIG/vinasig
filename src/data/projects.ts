@@ -74,6 +74,48 @@ export const tools = [
     ],
   },
   {
+    slug: 'metadata-cleaner',
+    name: 'Metadata Cleaner',
+    description:
+      'Remove optional image metadata without re-encoding JPEG, PNG, WebP or GIF.',
+    detail: 'Choose metadata blocks and see the exact bytes removed.',
+    url: 'https://clean.vinasig.io.vn/',
+    source: projectSource('metadata-cleaner'),
+    icon: 'image',
+    searchTerms: [
+      'remove metadata',
+      'exif',
+      'gps',
+      'privacy',
+      'xoa metadata',
+      'xoa thong tin anh',
+      'vi tri',
+      'camera',
+      'giam dung luong',
+    ],
+  },
+  {
+    slug: 'metadata-reader',
+    name: 'Metadata Reader',
+    description:
+      'Inspect metadata in images, PDF, media and Office files locally.',
+    detail: 'Search detected fields and download a JSON report.',
+    url: 'https://metadata.vinasig.io.vn/',
+    source: projectSource('metadata-reader'),
+    icon: 'file-search',
+    searchTerms: [
+      'read metadata',
+      'exif',
+      'pdf',
+      'audio',
+      'office',
+      'zip',
+      'doc metadata',
+      'xem thong tin file',
+      'kiem tra tep',
+    ],
+  },
+  {
     slug: 'favicon-forge',
     name: 'Favicon Forge',
     description:
@@ -129,7 +171,7 @@ export const foundations = [
 
 export const siteUrl = 'https://vinasig.io.vn/';
 export const siteDescription =
-  'Discover VINASIG tools for BMI, creating and scanning QR codes, verification codes, favicons and archives, alongside our shared project resources.';
+  'Discover VINASIG browser tools for image and file metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.';
 
 export function toolDestination(
   tool: (typeof tools)[number],
@@ -139,7 +181,9 @@ export function toolDestination(
     tool.url +
     (tool.slug === 'bmi-calculator' ||
     tool.slug === 'qr-scanner' ||
-    tool.slug === 'totp-generator'
+    tool.slug === 'totp-generator' ||
+    tool.slug === 'metadata-cleaner' ||
+    tool.slug === 'metadata-reader'
       ? lang === 'en'
         ? 'en/'
         : ''

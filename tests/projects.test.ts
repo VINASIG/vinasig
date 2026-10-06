@@ -15,6 +15,8 @@ for (const tool of tools) {
       'bmi-calculator',
       'qr-scanner',
       'totp-generator',
+      'metadata-cleaner',
+      'metadata-reader',
     ].includes(tool.slug);
     assert.equal(
       toolDestination(tool, 'vi'),
@@ -46,6 +48,8 @@ for (const tool of tools) {
       unphar: 'https://unphar.vinasig.io.vn/',
       'qr-scanner': 'https://scan.vinasig.io.vn/',
       'totp-generator': 'https://totp.vinasig.io.vn/',
+      'metadata-cleaner': 'https://clean.vinasig.io.vn/',
+      'metadata-reader': 'https://metadata.vinasig.io.vn/',
     };
     assert.equal(tool.url, sites[tool.slug]);
     assert(tool.detail.length > 20);
@@ -54,7 +58,7 @@ for (const tool of tools) {
 await test('The curated inventory has distinct public project identities', () => {
   const slugs = [...tools, ...foundations].map((project) => project.slug);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.equal(tools.length, 6);
+  assert.equal(tools.length, 8);
   assert.equal(foundations.length, 4);
 });
 await test('Site identity points to the primary VINASIG domain', () => {

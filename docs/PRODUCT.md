@@ -9,7 +9,7 @@ The website gives visitors a clear entry point into VINASIG projects. The owner 
 - Find the actual source, shared standards and organization contact directory.
 - Understand VINASIG and its use of SI agents without unsupported capability claims.
 
-The six tools are BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Favicon Forge and Unphar. Each has its own canonical website and source repository. The four public foundation repositories support these tools. Medical interpretation stays in the dedicated BMI tool.
+The eight tools are BMI Calculator, QR Generator, QR Scanner, TOTP Generator, Metadata Cleaner, Metadata Reader, Favicon Forge and Unphar. Each has its own canonical website and source repository. The metadata tools remove optional image metadata without re-encoding and inspect supported file metadata locally. The four public foundation repositories support these tools. Medical interpretation stays in the dedicated BMI tool.
 
 ## Interface
 

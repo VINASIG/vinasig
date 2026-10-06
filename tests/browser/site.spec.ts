@@ -248,11 +248,23 @@ for (const theme of ['light', 'dark'] as const)
         }),
       );
       if (mode === 'blocked')
-        await page.route('**/*', (route) =>
-          route.request().resourceType() === 'script'
-            ? route.abort()
-            : route.continue(),
-        );
+        await page.route('**/*', async (route) => {
+          if (route.request().resourceType() === 'document') {
+            // A network-only block still executes Astro's bundled inline modules.
+            const response = await route.fetch();
+            await route.fulfill({
+              response,
+              headers: {
+                ...response.headers(),
+                'content-security-policy': "script-src 'none'",
+              },
+            });
+          } else if (route.request().resourceType() === 'script') {
+            await route.abort();
+          } else {
+            await route.continue();
+          }
+        });
       try {
         await page.goto(app.url);
         await ready(page);
@@ -333,10 +345,41 @@ test('Keyboard activation, source names and anchor navigation', async ({
   await expect(
     page.getByText('SI stands for Super Intelligence.', { exact: false }),
   ).not.toBeVisible();
-  for (const tool of tools)
+  await page.getByRole('link', { name: 'Projects', exact: true }).click();
+  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(6);
+  for (const [index, tool] of tools.entries()) {
+    if (index > 0 && index % 6 === 0) {
+      const next = page.getByRole('button', { name: 'Next page', exact: true });
+      await expect(next).toBeEnabled();
+      await next.focus();
+      await page.keyboard.press('Enter');
+      await expect(page.locator('[data-tool-summary]')).toBeFocused();
+    }
     await expect(
-      page.getByRole('link', { name: `Source for ${tool.name}` }),
+      page.getByRole('link', { name: `Source for ${tool.name}`, exact: true }),
     ).toHaveAttribute('href', tool.source);
+  }
+  const previous = page.getByRole('button', {
+    name: 'Previous page',
+    exact: true,
+  });
+  await previous.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(6);
+  const search = page.getByRole('searchbox', {
+    name: 'Search tools',
+    exact: true,
+  });
+  await search.fill('metadata');
+  await search.press('Enter');
+  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(2);
+  await expect(
+    page.getByRole('heading', { name: 'Metadata Cleaner', exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Metadata Reader', exact: true }),
+  ).toBeVisible();
+  await expect(page.locator('.tool-pagination')).toBeHidden();
 });
 
 test('Long project content reflows at 320 px and 200 percent text', async ({

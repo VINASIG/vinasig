@@ -97,5 +97,16 @@
   "Show all tools": "Xem tất cả công cụ",
   "Showing {start} - {end} of {count} tools": "Hiển thị {start} - {end} trong {count} công cụ",
   "Tool pages": "Các trang công cụ",
-  "Try another name or task.": "Thử tên khác hoặc công việc bạn cần làm."
+  "Try another name or task.": "Thử tên khác hoặc công việc bạn cần làm.",
+  "Metadata Cleaner": "Metadata Cleaner",
+  "Metadata Reader": "Metadata Reader",
+  "Remove optional image metadata without re-encoding JPEG, PNG, WebP or GIF.": "Xóa metadata tùy chọn trong ảnh JPEG, PNG, WebP hoặc GIF mà không mã hóa lại ảnh.",
+  "Choose metadata blocks and see the exact bytes removed.": "Chọn các khối metadata và xem chính xác số byte đã xóa.",
+  "Inspect metadata in images, PDF, media and Office files locally.": "Đọc metadata trong ảnh, PDF, âm thanh và tài liệu Office ngay trên thiết bị.",
+  "Search detected fields and download a JSON report.": "Tìm thông tin đã đọc và tải báo cáo JSON.",
+  "Open Metadata Cleaner": "Mở Metadata Cleaner",
+  "Open Metadata Reader": "Mở Metadata Reader",
+  "Source for Metadata Cleaner": "Mã nguồn Metadata Cleaner",
+  "Source for Metadata Reader": "Mã nguồn Metadata Reader",
+  "Discover VINASIG browser tools for image and file metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.": "Khám phá công cụ VINASIG về metadata ảnh và file, BMI, mã QR, mã xác thực, favicon và tệp nén, cùng tài nguyên chung cho các dự án."
 }
