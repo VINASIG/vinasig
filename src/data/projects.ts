@@ -119,6 +119,29 @@ export const tools = [
     ],
   },
   {
+    slug: 'metadata-editor',
+    name: 'Metadata Editor',
+    description:
+      'Edit XMP metadata in JPEG, PNG and WebP locally without re-encoding.',
+    detail:
+      'Keep, replace or remove fields and inspect the new image before downloading.',
+    url: 'https://edit.vinasig.io.vn/',
+    source: projectSource('metadata-editor'),
+    icon: 'image',
+    searchTerms: [
+      'edit metadata',
+      'xmp',
+      'author',
+      'copyright',
+      'keywords',
+      'chinh sua metadata',
+      'sua thong tin anh',
+      'tac gia',
+      'ban quyen',
+      'tu khoa',
+    ],
+  },
+  {
     slug: 'favicon-forge',
     name: 'Favicon Forge',
     description:
@@ -186,7 +209,8 @@ export function toolDestination(
     tool.slug === 'qr-scanner' ||
     tool.slug === 'totp-generator' ||
     tool.slug === 'metadata-cleaner' ||
-    tool.slug === 'metadata-reader'
+    tool.slug === 'metadata-reader' ||
+    tool.slug === 'metadata-editor'
       ? lang === 'en'
         ? 'en/'
         : ''

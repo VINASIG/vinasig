@@ -372,13 +372,22 @@ test('Keyboard activation, source names and anchor navigation', async ({
   });
   await search.fill('metadata');
   await search.press('Enter');
-  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(2);
+  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(3);
   await expect(
     page.getByRole('heading', { name: 'Metadata Cleaner', exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole('heading', { name: 'Metadata Reader', exact: true }),
   ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Metadata Editor', exact: true }),
+  ).toBeVisible();
+  await search.fill('chỉnh sửa');
+  await search.press('Enter');
+  await expect(page.locator('[data-tool-card]:visible')).toHaveCount(1);
+  await expect(
+    page.getByRole('link', { name: 'Open Metadata Editor', exact: true }),
+  ).toHaveAttribute('href', 'https://edit.vinasig.io.vn/en/');
   await expect(page.locator('.tool-pagination')).toBeHidden();
 });
 
