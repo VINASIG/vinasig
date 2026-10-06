@@ -79,7 +79,7 @@ export const tools = [
     description:
       'Generate passwords and English or Vietnamese passphrases on your device.',
     detail:
-      'Standalone offline files. Research preview with experimental Vietnamese lists.',
+      'Research preview. Automatic countdown and standalone offline files.',
     url: 'https://password.vinasig.io.vn/',
     source: projectSource('password-generator'),
     icon: 'key-round',
