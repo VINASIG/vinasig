@@ -166,6 +166,13 @@ export const tools = [
 
 export const foundations = [
   {
+    slug: 'vietnamese-passphrase',
+    name: 'Vietnamese Passphrase',
+    description:
+      'Vietnamese wordlists for passphrases, with source evidence and a local reference generator. Research preview.',
+    url: projectSource('vietnamese-passphrase'),
+  },
+  {
     slug: 'agent-standards',
     name: 'Agent Standards',
     description:

@@ -113,5 +113,7 @@
   "Open Metadata Reader": "Mở Metadata Reader",
   "Source for Metadata Cleaner": "Mã nguồn Metadata Cleaner",
   "Source for Metadata Reader": "Mã nguồn Metadata Reader",
-  "Discover VINASIG browser tools for image and file metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.": "Khám phá công cụ VINASIG về metadata ảnh và file, BMI, mã QR, mã xác thực, favicon và tệp nén, cùng tài nguyên chung cho các dự án."
+  "Discover VINASIG browser tools for image and file metadata, BMI, QR codes, verification codes, favicons and archives, alongside shared project resources.": "Khám phá công cụ VINASIG về metadata ảnh và file, BMI, mã QR, mã xác thực, favicon và tệp nén, cùng tài nguyên chung cho các dự án.",
+  "Vietnamese wordlists for passphrases, with source evidence and a local reference generator. Research preview.": "Bộ từ tiếng Việt tạo mật khẩu dạng cụm, có chứng cứ nguồn và bộ sinh tham chiếu chạy trên thiết bị. Bản nghiên cứu.",
+  "Vietnamese Passphrase": "Vietnamese Passphrase"
 }

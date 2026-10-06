@@ -61,7 +61,7 @@ await test('The curated inventory has distinct public project identities', () =>
   const slugs = [...tools, ...foundations].map((project) => project.slug);
   assert.equal(new Set(slugs).size, slugs.length);
   assert.equal(tools.length, 9);
-  assert.equal(foundations.length, 4);
+  assert.equal(foundations.length, 5);
 });
 await test('Site identity points to the primary VINASIG domain', () => {
   assert.equal(siteUrl, 'https://vinasig.io.vn/');
