@@ -60,7 +60,7 @@ export const tools = [
     name: 'TOTP Generator',
     description: 'Generate time-based verification codes from your secret key.',
     detail:
-      'Codes update automatically. Your key stays in this browser session.',
+      'Codes update automatically. Optional share links contain the key and settings.',
     url: 'https://totp.vinasig.io.vn/',
     source: projectSource('totp-generator'),
     icon: 'key-round',
