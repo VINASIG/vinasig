@@ -58,9 +58,10 @@ export const tools = [
   {
     slug: 'totp-generator',
     name: 'TOTP Generator',
-    description: 'Generate time-based verification codes from your secret key.',
+    description:
+      'Generate time-based verification codes from a key, setup URL or QR image.',
     detail:
-      'Codes update automatically. Optional share links contain the key and settings.',
+      'Paste a QR image or scan with your camera on your device. Codes update automatically, with optional key sharing.',
     url: 'https://totp.vinasig.io.vn/',
     source: projectSource('totp-generator'),
     icon: 'key-round',
@@ -68,6 +69,8 @@ export const tools = [
       'otp',
       '2fa',
       'authenticator',
+      'qr enrollment',
+      'qr xac thuc',
       'authentication',
       'ma xac thuc',
       'bao mat',
